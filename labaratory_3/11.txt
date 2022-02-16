@@ -1,0 +1,67 @@
+//Зашифровать и расшифровать текст, находящийся в строкe с именем Fin. 
+//Закодированный (расшифрованный)текст сохранить в строку Fout. 
+//Для генерации гаммы использовать мультипликативный датчик со значениями a = 5, m = 4096, Y0 = 4003.
+
+#include<iostream>
+
+#include<math.h>
+
+#include<string>
+
+#define a 5
+
+#define m 4096
+
+#define y0 4003
+
+#define n 8
+
+#define N 256 // длина строки
+
+int Rnd(char*);
+
+int main(){
+
+char G[n];
+
+char Fin[N], Fout[N], ch, Buff[n], Text[n];
+
+int i, j;
+
+std::cin.getline(Fin,N);
+
+j=0;
+
+do{
+
+Rnd(G);
+
+for(i=0;i<n;i++) {
+
+ch=Fin[j];
+
+Buff[i]=int(ch);
+
+Text[i]=Buff[i]^G[i];
+
+Fout[i]=char(Text[i];}
+
+j++;
+
+} while(Fin[j]!=NULL);
+
+return 1;}
+
+// функция для случайного генерирования гаммы
+
+int Rnd(char *t){
+
+int i, y;
+
+for(y=y0,i=0;i<n; i++){
+
+y=(a*y)%m;
+
+t[i]=y;}
+
+return 1;}
